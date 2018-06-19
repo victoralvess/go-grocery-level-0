@@ -2,7 +2,7 @@ package main
 
 import (
 	"fmt"
-	"./grocery"
+	"github.com/victoralvess/go-grocery-level-0/grocery"
 )
 
 func main() {
