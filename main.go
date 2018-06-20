@@ -2,15 +2,16 @@ package main
 
 import (
 	"fmt"
-	"github.com/victoralvess/go-grocery-level-0/grocery"
+	"github.com/victoralvess/go-grocery-level-0/grocery/product"
+	"github.com/victoralvess/go-grocery-level-0/grocery/customer"
 )
 
 func main() {
-	var egg = grocery.NewProduct("Egg", 2.0, 50)
-	var milk = grocery.NewProduct("Milk", 5.0, 20)
-	var outOfStock = grocery.NewProduct("Out of Stock", 100000000, 0)
+	var egg = product.New("Egg", 2.0, 50)
+	var milk = product.New("Milk", 5.0, 20)
+	var outOfStock = product.New("Out of Stock", 100000000, 0)
 	
-	var customer = grocery.NewCustomer()
+	var customer = customer.New()
 
 	customer.AddToCart(egg)
     customer.AddToCart(egg)
