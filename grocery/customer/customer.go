@@ -8,7 +8,7 @@ import (
 
 // Customer defines a customer
 type Customer struct {
-	cart []product.Product
+	cart []*product.Product
 }
 
 // New creates a new customer.
@@ -17,7 +17,7 @@ func New() Customer {
 }
 
 // AddToCart adds a product to the customer cart if the product is available in stock.
-func (c *Customer) AddToCart(product product.Product) {
+func (c *Customer) AddToCart(product *product.Product) {
 	if available, err := product.IsAvailableInStock(); available && err == nil {
 		product.InStock--
 		c.cart = append(c.cart, product)
