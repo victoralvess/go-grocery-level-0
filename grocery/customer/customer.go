@@ -2,6 +2,7 @@ package customer
 
 import (
 	"fmt"
+
 	"github.com/victoralvess/go-grocery-level-0/grocery/product"
 )
 
@@ -13,12 +14,12 @@ type customer struct {
 }
 
 func New() Customer {
-	return Customer {}
+	return Customer{}
 }
 
 func (c *Customer) AddToCart(product Product) {
 	if available, err := product.IsAvailableInStock(); available && err == nil {
-		product.InStock -= 1
+		product.InStock--
 		c.cart = append(c.cart, product)
 	} else {
 		fmt.Println(err)
