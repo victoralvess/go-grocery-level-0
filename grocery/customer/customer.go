@@ -17,13 +17,12 @@ func New() Customer {
 }
 
 func (c *Customer) AddToCart(product Product) {
-	if product.InStock <= 0 {
-		fmt.Printf("%s is out of stock\n", product.Name)
-		return
+	if available, err := product.IsAvailableInStock(); available && err == nil {
+		product.InStock -= 1
+		c.cart = append(c.cart, product)
+	} else {
+		fmt.Println(err)
 	}
-	
-	product.InStock -= 1
-	c.cart = append(c.cart, product)
 }
 
 func (c *Customer) Buy() float32 {
